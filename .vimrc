@@ -1,6 +1,6 @@
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
-
+"this is a test
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
@@ -21,7 +21,7 @@ Plugin 'Glench/Vim-Jinja2-Syntax'
 Plugin 'Raimondi/delimitMate'
 Plugin 'docunext/closetag.vim'
 Plugin 'kien/ctrlp.vim'
-" Plugin 'Valloric/YouCompleteMe' Need to update VIM
+" Plugin 'Valloric/YouCompleteMe'
 " Plugin 'davidhalter/jedi-vim'
 Plugin 'nvie/vim-flake8'
 " Plugin 'klen/python-mode'
@@ -29,12 +29,19 @@ Plugin 'nvie/vim-flake8'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 " Plugin 'garbas/vim-snipmate'
+Plugin 'tpope/vim-fugitive'
+" Plugin 'yggdroot/indentline'
+Plugin 'jmcantrell/vim-virtualenv'
+" Plugin 'cjrh/vim-conda'
+" Plugin 'ervandew/supertab'
 
 call vundle#end()
 filetype plugin indent on
 
+" General config
 set nu
-
+set breakindent
+set backspace=2
 set noexpandtab
 set copyindent
 set preserveindent
@@ -67,6 +74,7 @@ map <S-Enter> O<ESC>
 syntax on
 colorscheme lucario
 hi Visual term=reverse cterm=reverse guibg=Grey
+hi clear SignColumn
 nnoremap <A-Left> :tabprevious<CR>
 nnoremap <A-Right> :tabnext<CR>
 let g:ctrlp_map = '<c-p>'
