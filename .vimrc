@@ -5,6 +5,7 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
@@ -40,7 +41,7 @@ filetype plugin indent on
 
 " General config
 set nu
-set breakindent
+" set breakindent
 set backspace=2
 set noexpandtab
 set copyindent
@@ -72,7 +73,9 @@ let g:airline_symbols.space = "\ua0"
 map <Enter> o<ESC>
 map <S-Enter> O<ESC>
 syntax on
-colorscheme lucario
+" colorscheme lucario
+colorscheme hybrid
+set bg=dark
 hi Visual term=reverse cterm=reverse guibg=Grey
 hi clear SignColumn
 nnoremap <A-Left> :tabprevious<CR>
@@ -115,3 +118,8 @@ call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
 " let g:syntastic_check_on_wq = 0
 " nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
 " nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
+
+" OPTIMIZATION ##########
+set nocompatible
+set ttyfast
+set lazyredraw
