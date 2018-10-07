@@ -1,17 +1,24 @@
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
-"this is a test
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'hynek/vim-python-pep8-indent'
+" Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
+Plugin 'quramy/tsuquyomi'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'jason0x43/vim-js-indent'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-dispatch'
 Plugin 'morhetz/gruvbox'
+Plugin 'OmniSharp/omnisharp-vim'
+Plugin 'shougo/unite.vim'
+Plugin 'junegunn/fzf'
+" Plugin 'valloric/youcompleteme'
 Plugin 'msanders/snipmate.vim'
 Plugin 'othree/html5.vim'
 Plugin 'pangloss/vim-javascript'
@@ -22,10 +29,10 @@ Plugin 'Glench/Vim-Jinja2-Syntax'
 Plugin 'Raimondi/delimitMate'
 Plugin 'docunext/closetag.vim'
 Plugin 'kien/ctrlp.vim'
-" Plugin 'Valloric/YouCompleteMe'
-" Plugin 'davidhalter/jedi-vim'
-Plugin 'nvie/vim-flake8'
-" Plugin 'klen/python-mode'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'davidhalter/jedi-vim'
+" Plugin 'nvie/vim-flake8'
+Plugin 'klen/python-mode'
 " Plugin 'honza/vim-snipmate'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
@@ -35,6 +42,16 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'jmcantrell/vim-virtualenv'
 " Plugin 'cjrh/vim-conda'
 " Plugin 'ervandew/supertab'
+Plugin 'tpope/vim-rails'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'majutsushi/tagbar'
+Plugin 'tpope/vim-repeat'
+Plugin 'rip-rip/clang_complete'
+Plugin 'tpope/vim-fireplace'
+Plugin 'guns/vim-clojure-static'
+Plugin 'paredit.vim'
+
+
 
 call vundle#end()
 filetype plugin indent on
@@ -60,6 +77,8 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 noremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+imap fd <Esc>
+vmap fd <Esc>
 
 " Airline Options
 set laststatus=2
@@ -70,8 +89,9 @@ if !exists('g:airline_symbols')
 endif
 let g:airline_symbols.space = "\ua0"
 
-map <Enter> o<ESC>
-map <S-Enter> O<ESC>
+" map <S-J> 10j
+" map <S-K> 10k
+
 syntax on
 " colorscheme lucario
 colorscheme hybrid
@@ -84,9 +104,12 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
 " NERD TREE OPTIONS
-autocmd vimenter * NERDTree
+" autocmd vimenter * NERDTree
 map <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+"TAG BAR OPTIONS
+nmap <F8> :TagbarToggle<CR>
 
 " NERDTress File highlighting
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
@@ -119,7 +142,17 @@ call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
 " nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
 " nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
 
+let g:paredit_mode = 1
+
 " OPTIMIZATION ##########
 set nocompatible
 set ttyfast
 set lazyredraw
+
+" CRONTAB
+if $VIM_CRONTAB == "true"
+	set nobackup
+	set nowritebackup
+endif
+
+let mapleader = "<space>"
