@@ -1,3 +1,26 @@
+set nocompatible               " be improved, required
+filetype off                   " required
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.config/nvim/bundle/Vundle.vim
+call vundle#begin()            " required
+Plugin 'VundleVim/Vundle.vim'  " required
+
+" ===================
+" my plugins here
+" ===================
+
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'tpope/vim-surround'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'octol/vim-cpp-enhanced-highlight'
+
+
+" ===================
+" end of plugins
+" ===================
+call vundle#end()               " required
+filetype plugin indent on       " required
+
 " General config
 set nu
 set backspace=2
@@ -10,6 +33,9 @@ set tabstop=4
 set autoindent
 set splitbelow
 set splitright
+set ignorecase
+set smartcase
+set clipboard=unnamedplus
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
