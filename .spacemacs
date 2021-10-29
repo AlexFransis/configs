@@ -546,6 +546,8 @@ before packages are loaded."
   (setq-default c-default-style "stroustrup"
                 tab-width 8
                 c-basic-offset 8)
+  (setq lsp-enable-on-type-formatting nil)
+  (setq lsp-enable-indentation nil)
 
 
   (global-set-key (kbd "C-k") 'paredit-kill)
